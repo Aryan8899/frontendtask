@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import Logo from "./Images/logo.png";
-import Wallet from "./wallet";
 import {
   Search,
   Globe,
@@ -11,7 +9,7 @@ import {
   Menu,
   Moon,
   Monitor,
-} from "lucide-react"; // Import Menu icon
+} from "lucide-react"; // Importing icons
 import useClickOutside from "./useClickOutside"; // Import the custom hook
 
 const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
@@ -74,13 +72,13 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
       </div>
 
       {/* Search bar and right-side icons */}
-      <div className="flex items-center flex-1">
+      <div className="flex items-center flex-1 justify-between">
         {isSearchActive ? (
           <div
             ref={searchRef}
-            className="flex items-center rounded-lg px-4 py-2 w-full md:w-3/4 lg:w-full"
+            className="flex rounded-lg px-4 py-2 md:w-3/4 lg:w-1/2"
           >
-            <Search className="h-5 w-5 text-gray-500 mr-3" />
+            <Search className="h-5 w-5 text-gray-500 mr-3 cursor-pointer" />
             <input
               type="text"
               placeholder="Search..."
@@ -92,7 +90,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
             />
           </div>
         ) : (
-          <div className="flex items-center flex-1">
+          <div className="flex items-center flex-1 justify-between">
             <div
               ref={searchRef}
               className="flex rounded-lg px-4 py-2 md:w-3/4 lg:w-1/2"
@@ -109,8 +107,8 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
               />
             </div>
 
-            <div className="flex items-center md:ml-7 md:space-x-8">
-              
+            {/* Icons aligned to the right */}
+            <div className="flex items-center md:ml-auto space-x-8">
               <Globe className="h-5 w-5 text-gray-500 cursor-pointer" />
               <div ref={dropdownRef} className="relative">
                 <div onClick={toggleDropdown}>{renderThemeIcon()}</div>
@@ -154,11 +152,11 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
               </div>
               <div className="relative w-9 h-9">
-              <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
-            alt="Profile"
-            className="w-8 h-8 rounded-full border-2 border-gray-200"
-          />
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="Profile"
+                  className="w-8 h-8 rounded-full border-2 border-gray-200"
+                />
                 <span className="absolute -bottom-1 -right-1 bg-green-500 border-2 border-white rounded-full w-4 h-4"></span>
               </div>
             </div>
